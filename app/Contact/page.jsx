@@ -61,7 +61,7 @@ function Contact() {
               type="email"
               name="email"
               placeholder="Want to hear back? Enter your email"
-              value={formData.name}
+              value={formData.email}
               onChange={handleChange}
               className="w-full p-4 text-zinc-100 bg-transparent border-2 border-zinc-500 rounded-xl focus:border-white focus:outline-none transition-colors duration-200 placeholder-zinc-400"
               required
