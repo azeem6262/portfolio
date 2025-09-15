@@ -42,14 +42,14 @@ function Navbar() {
 
         <div className="flex items-center gap-8 text-zinc-100">
           {["Skills", "Works", "About"].map((item, index) => (
-            <a
+            <Link
               key={index}
-              data-scroll-to={`#${item.toLowerCase()}`}
-              className="text-xl capitalize font-light tracking-tight 
+              href={`#${item.toLowerCase()}`}
+              className="text-xl capitalize font-light tracking-tight
                 hover:text-zinc-400 transition-colors duration-200"
             >
               {item}
-            </a>
+            </Link>
           ))}
 
           <Link href="/Contact" passHref>
