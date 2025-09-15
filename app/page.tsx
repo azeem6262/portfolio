@@ -80,7 +80,7 @@ function Marquee() {
         <div className='mt-50 for-3d-render centre h-[300px] w-1/3 flex items-center justify-center z-10'>
             
         </div>
-        <div className='right overflow-hidden h-[250px] pl-[20px] pt-[2px] w-1/3 text-zinc-100 text-4xl
+        <div className='right overflow-hidden h-[350px] pl-[20px] pt-[2px] w-1/3 text-zinc-100 text-4xl
         font-["Oswald_Extralight"] flex-grow'>
             <div className='pt-40 pl-60'>
                 <h4 className='font-light'>Available for work</h4>
@@ -92,7 +92,7 @@ function Marquee() {
         </div>
 
 
-        <div className='works h-[2000px] w-full'>
+        <div id="works" className='works h-[2000px] w-full'>
         <div data-scroll data-scroll-section data-scroll-speed = '-0.2' className='flex items-center w-full h-1/3 bg-zinc-900 rounded-tl-3xl overflow-hidden rounded-tr-3xl font-["Oswald_ExtraLight"] mt-40'>
             <div className='flex flex-col items-center w-1/2 h-full whitespace-nowrap overflow-hidden'>
             
@@ -152,7 +152,7 @@ function Marquee() {
     </div>
 
 
-    <div data-scroll data-scroll-section data-scroll-speed="0.1" className='skills w-full min-h-screen bg-black flex items-center justify-center'>
+    <div id="skills" data-scroll data-scroll-section data-scroll-speed="0.1" className='skills w-full min-h-screen bg-black flex items-center justify-center'>
         <div className='w-1/2 h-full text-zinc-100 text-8xl p-15 text-bolder tracking-loose'><h1 className='font-["Oswald"]'>Developer</h1><h1 className='font-["Oswald"]'>Designer</h1><h1 className='font-["Oswald"]'>Creator/</h1>
         </div>
         <div className='w-1/2 h-full flex flex-col'>
@@ -191,7 +191,7 @@ function Marquee() {
     </div>
     
     {/* --- NEW, REDESIGNED ABOUT ME SECTION --- */}
-    <div 
+    <div id="about"
   data-scroll 
   data-scroll-section 
   className='relative w-full min-h-screen py-20 px-10 bg-zinc-900 text-zinc-200 flex flex-col items-center justify-center overflow-hidden'

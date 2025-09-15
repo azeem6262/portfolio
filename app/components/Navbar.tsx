@@ -44,7 +44,7 @@ function Navbar() {
           {["Skills", "Works", "About"].map((item, index) => (
             <a
               key={index}
-              href={`#${item.toLowerCase()}`}
+              data-scroll-to={`#${item.toLowerCase()}`}
               className="text-xl capitalize font-light tracking-tight 
                 hover:text-zinc-400 transition-colors duration-200"
             >
