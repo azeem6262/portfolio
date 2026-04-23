@@ -14,7 +14,7 @@ export function Contact() {
               My engineering journey is driven by taking raw ideas from paper sketches to live, real-time products. I learn best by doing—which is exactly how <strong className="text-foreground font-medium">Batchify</strong> and <strong className="text-foreground font-medium">Flickstat</strong> were created. Both evolved from scratch into full applications that are actively used by people today.
             </p>
             <p>
-              I thrive in collaborative environments just as much as solo deep dives; for example, I served as the project lead for a talented three-person team to bring Flickstat's vision to life.
+              I thrive in collaborative environments just as much as solo deep dives; for example, I served as the project lead for a talented three-person team to bring Flickstat&apos;s vision to life.
             </p>
             <p>
               I&apos;m currently open for new opportunities. Whether you have an idea, a question, or just want to say hi, I&apos;ll try my best to get back to you!
