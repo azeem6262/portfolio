@@ -1,5 +1,7 @@
 "use client";
 
+import Image from "next/image";
+
 import { useTheme } from "next-themes";
 import { Moon, Sun } from "lucide-react";
 import { useEffect, useState } from "react";
@@ -21,7 +23,7 @@ export default function Home() {
       {/* Navigation Layer */}
       <nav className="fixed top-0 left-0 right-0 p-4 sm:p-6 flex items-center justify-between z-50 backdrop-blur-sm border-b border-border/50">
         <div className="w-10 h-10 rounded-full border border-border bg-muted overflow-hidden flex items-center justify-center font-bold text-xs shadow-sm" title="Azeem">
-          <img src="/pfp.jpeg" alt="Azeem Profile" className="w-full h-full object-cover" onError={(e) => (e.currentTarget.style.display = 'none')} />
+          <Image src="/pfp.jpeg" alt="Azeem Profile" width={40} height={40} className="w-full h-full object-cover" />
           <span className="absolute -z-10">A</span>
         </div>
         <div className="flex items-center gap-2 sm:gap-4 text-base tracking-widest uppercase font-semibold text-muted-foreground overflow-hidden">
