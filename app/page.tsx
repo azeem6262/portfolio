@@ -55,7 +55,7 @@ export default function Home() {
               <span className="text-muted-foreground">experiences.</span>
             </h1>
             <p className="text-lg md:text-xl text-muted-foreground max-w-md leading-relaxed">
-              I'm a Software Engineer focused on building scalable, user-centric web applications with modern architecture.
+              I&apos;m a Software Engineer focused on building scalable, user-centric web applications with modern architecture.
             </p>
           </div>
 

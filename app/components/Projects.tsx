@@ -44,7 +44,7 @@ export function Projects() {
       <div className="flex flex-col gap-4 mb-12 px-4 md:px-6 max-w-7xl mx-auto">
         <h2 className="text-2xl sm:text-3xl md:text-5xl font-bold tracking-tight text-foreground">Featured Work</h2>
         <p className="text-muted-foreground text-sm sm:text-base md:text-lg max-w-2xl">
-          A selection of projects where I've focused on performance, user experience, and robust architecture.
+          A selection of projects where I&apos;ve focused on performance, user experience, and robust architecture.
         </p>
       </div>
 

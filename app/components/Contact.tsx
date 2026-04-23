@@ -1,13 +1,13 @@
 "use client";
 
-import { Github, Linkedin, Mail, Twitter } from "lucide-react";
+import { Github, Linkedin, Mail } from "lucide-react";
 
 export function Contact() {
   return (
     <section id="about" className="py-16 md:py-24 px-4 md:px-6 max-w-7xl mx-auto w-full border-t border-border mt-8 md:mt-12 mb-8 md:mb-12">
       <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-8">
         <div className="flex flex-col gap-6 max-w-3xl">
-          <h2 className="text-2xl sm:text-3xl md:text-5xl font-bold tracking-tight text-foreground">Let's build something.</h2>
+          <h2 className="text-2xl sm:text-3xl md:text-5xl font-bold tracking-tight text-foreground">Let&apos;s build something.</h2>
           
           <div className="flex flex-col gap-4 text-muted-foreground text-lg leading-relaxed">
             <p>
@@ -17,7 +17,7 @@ export function Contact() {
               I thrive in collaborative environments just as much as solo deep dives; for example, I served as the project lead for a talented three-person team to bring Flickstat's vision to life.
             </p>
             <p>
-              I'm currently open for new opportunities. Whether you have an idea, a question, or just want to say hi, I'll try my best to get back to you!
+              I&apos;m currently open for new opportunities. Whether you have an idea, a question, or just want to say hi, I&apos;ll try my best to get back to you!
             </p>
           </div>
         </div>
