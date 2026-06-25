@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Share_Tech, JetBrains_Mono } from "next/font/google";
+import { Share_Tech, JetBrains_Mono, DM_Serif_Display, Inter } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "./theme-provider";
 
@@ -11,6 +11,17 @@ const shareTech = Share_Tech({
 
 const jetbrainsMono = JetBrains_Mono({
   variable: "--font-mono",
+  subsets: ["latin"],
+});
+
+const dmSerifDisplay = DM_Serif_Display({
+  weight: "400",
+  variable: "--font-serif",
+  subsets: ["latin"],
+});
+
+const inter = Inter({
+  variable: "--font-inter",
   subsets: ["latin"],
 });
 
@@ -26,7 +37,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${shareTech.variable} ${jetbrainsMono.variable} antialiased bg-background text-foreground`}>
+      <body className={`${shareTech.variable} ${jetbrainsMono.variable} ${dmSerifDisplay.variable} ${inter.variable} antialiased bg-background text-foreground`}>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
           {children}
         </ThemeProvider>

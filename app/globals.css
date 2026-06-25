@@ -5,6 +5,8 @@
 @theme {
   --font-sans: var(--font-share-tech);
   --font-mono: var(--font-mono);
+  --font-serif: var(--font-serif);
+  --font-inter: var(--font-inter);
 }
 
 :root {
@@ -37,10 +39,13 @@
   --ring: #18181b;
 
   --radius: 0.5rem;
+
+  --surface: #f4f4f5;
+  --chartreuse: #e8ff47;
 }
 
 .dark {
-  --background: #09090b;
+  --background: #0a0a0a;
   --foreground: #fafafa;
 
   --card: #09090b;
@@ -67,6 +72,9 @@
   --border: #27272a;
   --input: #27272a;
   --ring: #d4d4d8;
+
+  --surface: #111111;
+  --chartreuse: #e8ff47;
 }
 
 @theme inline {
@@ -96,6 +104,8 @@
   --color-border: var(--border);
   --color-input: var(--input);
   --color-ring: var(--ring);
+  --color-surface: var(--surface);
+  --color-chartreuse: var(--chartreuse);
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);

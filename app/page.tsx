@@ -6,7 +6,7 @@ import { useTheme } from "next-themes";
 import { Moon, Sun } from "lucide-react";
 import { useEffect, useState } from "react";
 import { Terminal } from "./components/Terminal";
-import { Projects } from "./components/Projects";
+import { ProjectsSection } from "./components/ProjectsSection";
 import { Contact } from "./components/Contact";
 import { Skills } from "./components/Skills";
 
@@ -68,7 +68,7 @@ export default function Home() {
 
       {/* Content Sections */}
       <Skills />
-      <Projects />
+      <ProjectsSection />
       <Contact />
     </div>
   );
