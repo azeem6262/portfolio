@@ -1,6 +1,63 @@
-import { ExternalLink, Github } from "lucide-react";
+"use client";
+
+import { useState } from "react";
+import { ProjectCard } from "./ProjectCard";
 
 export function ProjectsSection() {
+  const [expandedProject, setExpandedProject] = useState<string | null>(null);
+
+  const toggleProject = (projectName: string) => {
+    setExpandedProject((prev) => (prev === projectName ? null : projectName));
+  };
+
+  const flickstatExpanded = (
+    <div className="flex flex-col gap-6 text-muted-foreground text-sm leading-relaxed font-inter">
+      <div>
+        <p className="font-mono text-xs uppercase tracking-widest mb-2 text-muted-foreground/70">// origin</p>
+        <p>Azeem originally built this alone under the name "Lins." He scraped everything, built the pipeline, but hit a wall at canonical ID resolution — when Rashford moved from Manchester United to FC Barcelona, he had two completely separate IDs across data sources. None of the sources agreed on player or club names either (Man United vs Manchester United, accented names, aliases). He deleted everything, restarted from scratch, and brought in two college friends — Arnav and Vedant — explaining the entire vision to them and co-designing the schema from zero.</p>
+      </div>
+      <div>
+        <p className="font-mono text-xs uppercase tracking-widest mb-2 text-muted-foreground/70">// under the hood</p>
+        <p>Data is combined from five sources — WhoScored, Understat, BSD, Transfermarkt, and TheSportsDB (images). Each source uses its own internal IDs. The team designed a canonical "Flickstat ID" system that maps every player and club across all five sources into one unified identity. Automated daily scraping runs via a run_daily_pipeline triggered by cron-job.org firing a GitHub Actions workflow. Live match data and odds are delivered via WebSockets through BSD running on an Oracle Cloud VM. The site serves 1,000+ pages via SSR and SSG — one of the real production challenges was deciding which rendering strategy to use where, and getting that wrong initially. Azeem owns the backend; Vedant handles frontend; Arnav manages automation.</p>
+      </div>
+      <div className="pt-2">
+        <span className="font-bold text-foreground bg-surface px-2 py-1 rounded">✦ 1,500 users/month</span>
+      </div>
+    </div>
+  );
+
+  const wildwatchExpanded = (
+    <div className="flex flex-col gap-6 text-muted-foreground text-sm leading-relaxed font-inter">
+      <div>
+        <p className="font-mono text-xs uppercase tracking-widest mb-2 text-muted-foreground/70">// origin</p>
+        <p>Azeem's cousin is a research student doing field work — planting GoPros and camera traps at wildlife sites in Gujarat, then manually labelling hundreds of videos afterward. One conversation sparked the idea: what if the labelling was automated, entirely offline, on the laptop they already carry? The target user is student researchers and field conservation teams, particularly those working with Indian species.</p>
+      </div>
+      <div>
+        <p className="font-mono text-xs uppercase tracking-widest mb-2 text-muted-foreground/70">// under the hood</p>
+        <p>The hardest part wasn't the ML — it was finding the right combination of models. After testing several options, the final pipeline uses MegaDetector v5a for animal detection and flagging, Google SpeciesNet for species identification, and an OpenCLIP model that gave better results specifically for Indian species in Gujarat. Packaging all of this into a single offline .exe installer (PyInstaller + Tauri v2) without internet dependency was genuinely difficult. One feature does optionally use the Gemini API — reading timestamps from video frames — but the core pipeline (detection, species ID, flagging, CSV export) works completely offline. The output is a clean CSV with every frame labelled and flagged, ready for research use. Currently tested end-to-end by Azeem; first external handoff to his cousin is upcoming.</p>
+      </div>
+      <div className="pt-2">
+        <span className="text-muted-foreground/50 text-xs italic">First external deployment coming soon.</span>
+      </div>
+    </div>
+  );
+
+  const batchifyExpanded = (
+    <div className="flex flex-col gap-6 text-muted-foreground text-sm leading-relaxed font-inter">
+      <div>
+        <p className="font-mono text-xs uppercase tracking-widest mb-2 text-muted-foreground/70">// origin</p>
+        <p>Built for creators and companies who process images in bulk — designers, social media teams, small businesses. The core design decision was zero server uploads: everything happens natively in the browser. This wasn't just a performance choice — it was a deliberate privacy stance. People are rightfully skeptical of uploading images to unknown servers (think: PDF editors selling your data). On Batchify, nothing leaves your machine.</p>
+      </div>
+      <div>
+        <p className="font-mono text-xs uppercase tracking-widest mb-2 text-muted-foreground/70">// under the hood</p>
+        <p>Processes up to 150 images simultaneously in-browser using the Canvas API and Web Workers. The tricky engineering problem was mobile: mobile browsers cannot handle compute-heavy operations like smart crop or background removal via Web Workers — they simply don't have the resources. The solution was device detection to gracefully degrade on mobile while keeping the full feature set intact on desktop. Fast, private, and honest about its constraints.</p>
+      </div>
+      <div className="pt-2">
+        <span className="font-bold text-foreground bg-surface px-2 py-1 rounded">✦ 150 images simultaneously</span>
+      </div>
+    </div>
+  );
+
   return (
     <section id="projects" className="w-full py-24 relative font-inter bg-background text-foreground border-t border-border/50">
       <div className="max-w-7xl mx-auto px-4 md:px-6">
@@ -15,118 +72,62 @@ export function ProjectsSection() {
         <div className="flex flex-col gap-12">
           {/* Tier 1: Featured */}
           <div className="flex flex-col gap-8 md:gap-12">
-            {/* Flickstat */}
-            <div className="group relative border border-border p-8 md:p-12 rounded-2xl bg-background transition-colors duration-500 hover:bg-surface overflow-hidden flex flex-col justify-between items-start gap-8 shadow-sm">
-              <div className="absolute left-0 top-0 bottom-0 w-1.5 bg-chartreuse -translate-x-full group-hover:translate-x-0 transition-transform duration-300 ease-out"></div>
-              
-              <div className="w-full flex flex-col md:flex-row md:items-start justify-between gap-8">
-                <div className="flex flex-col gap-4 max-w-2xl">
-                  <h3 className="font-serif text-4xl md:text-5xl lg:text-6xl text-foreground leading-tight">Flickstat</h3>
-                  <p className="text-muted-foreground text-lg md:text-xl leading-relaxed">
-                    Football analytics platform providing live match data and predictions. Founded and led a 3-person team, resolving canonical IDs across 4 data sources.
-                  </p>
-                </div>
-                <a 
-                  href="https://flickstat.com" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-2 text-chartreuse font-mono text-sm uppercase tracking-wider hover:opacity-80 transition-opacity whitespace-nowrap border border-chartreuse/20 px-5 py-2.5 rounded-full bg-chartreuse/10"
-                >
-                  Live Project <ExternalLink size={16} />
-                </a>
-              </div>
+            <ProjectCard
+              title="Flickstat"
+              titleClassName="text-4xl md:text-5xl lg:text-6xl"
+              description="Football analytics platform providing live match data and predictions. Founded and led a 3-person team, resolving canonical IDs across 4 data sources."
+              tags={["Next.js", "WebSockets", "SSR / SSG"]}
+              link="https://flickstat.com"
+              linkLabel="Live Project"
+              linkIcon="external"
+              highlightStat="1,000+ pages served via SSR/SSG · Real users · Live WebSocket data"
+              isLive={true}
+              expandedContent={flickstatExpanded}
+              isExpanded={expandedProject === "Flickstat"}
+              onToggle={() => toggleProject("Flickstat")}
+            />
 
-              <div className="flex flex-wrap items-center gap-3">
-                <span className="px-3 py-1.5 bg-secondary text-secondary-foreground text-xs font-mono rounded-md uppercase tracking-wider">Next.js</span>
-                <span className="px-3 py-1.5 bg-secondary text-secondary-foreground text-xs font-mono rounded-md uppercase tracking-wider">WebSockets</span>
-                <span className="px-3 py-1.5 bg-secondary text-secondary-foreground text-xs font-mono rounded-md uppercase tracking-wider">SSR / SSG</span>
-              </div>
-
-              <div className="w-full pt-6 border-t border-border mt-2">
-                <p className="text-foreground font-mono text-sm flex items-center gap-3">
-                  <span className="text-chartreuse text-xl">✦</span> 1,000+ pages served via SSR/SSG · Real users · Live WebSocket data
-                </p>
-              </div>
-            </div>
-
-            {/* WildWatch */}
-            <div className="group relative border border-border p-6 md:p-10 rounded-2xl bg-background transition-colors duration-500 hover:bg-surface overflow-hidden flex flex-col justify-between items-start gap-8 max-w-4xl ml-auto w-full shadow-sm">
-              <div className="absolute left-0 top-0 bottom-0 w-1.5 bg-chartreuse -translate-x-full group-hover:translate-x-0 transition-transform duration-300 ease-out"></div>
-              
-              <div className="w-full flex flex-col md:flex-row md:items-start justify-between gap-8">
-                <div className="flex flex-col gap-3 max-w-xl">
-                  <h3 className="font-serif text-3xl md:text-4xl text-foreground">WildWatch</h3>
-                  <p className="text-muted-foreground text-base md:text-lg leading-relaxed">
-                    Fully offline Windows desktop AI app for wildlife conservation, processing 3,000+ files locally without internet.
-                  </p>
-                </div>
-                <a 
-                  href="https://github.com/azeem6262/WildWatch" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-2 text-foreground font-mono text-sm uppercase tracking-wider hover:text-chartreuse transition-colors whitespace-nowrap border border-border hover:border-chartreuse px-5 py-2.5 rounded-full"
-                >
-                  Source <Github size={16} />
-                </a>
-              </div>
-
-              <div className="flex flex-wrap items-center gap-3">
-                <span className="px-3 py-1.5 bg-secondary text-secondary-foreground text-xs font-mono rounded-md uppercase tracking-wider">Python</span>
-                <span className="px-3 py-1.5 bg-secondary text-secondary-foreground text-xs font-mono rounded-md uppercase tracking-wider">MegaDetector v5a</span>
-                <span className="px-3 py-1.5 bg-secondary text-secondary-foreground text-xs font-mono rounded-md uppercase tracking-wider">Google SpeciesNet</span>
-              </div>
-
-              <div className="w-full pt-5 border-t border-border mt-2">
-                <p className="text-foreground font-mono text-sm flex items-center gap-3">
-                  <span className="text-chartreuse text-xl">✦</span> Fully offline · MegaDetector v5a · 2,400+ species identified
-                </p>
-              </div>
-            </div>
+            <ProjectCard
+              title="WildWatch"
+              titleClassName="text-3xl md:text-4xl"
+              className="max-w-5xl ml-auto w-full"
+              description="Fully offline Windows desktop AI app for wildlife conservation, processing 3,000+ files locally without internet."
+              tags={["Python", "MegaDetector v5a", "Google SpeciesNet"]}
+              link="https://github.com/azeem6262/WildWatch"
+              linkLabel="Source"
+              linkIcon="github"
+              highlightStat="Fully offline · MegaDetector v5a · 2,400+ species identified"
+              expandedContent={wildwatchExpanded}
+              isExpanded={expandedProject === "WildWatch"}
+              onToggle={() => toggleProject("WildWatch")}
+            />
           </div>
 
           {/* Tier 2: Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 w-full mt-4">
-            {/* Batchify.pro */}
-            <div className="group relative border border-border p-8 rounded-xl bg-background transition-colors duration-500 hover:bg-surface overflow-hidden flex flex-col gap-6 shadow-sm">
-              <div className="absolute left-0 top-0 bottom-0 w-1 bg-chartreuse -translate-x-full group-hover:translate-x-0 transition-transform duration-300 ease-out"></div>
-              
-              <div className="flex justify-between items-start">
-                <h3 className="font-serif text-2xl text-foreground">Batchify.pro</h3>
-                <a href="https://batchify.pro" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-chartreuse transition-colors">
-                  <ExternalLink size={20} />
-                </a>
-              </div>
-              
-              <p className="text-muted-foreground text-base flex-1 leading-relaxed">
-                Browser-only bulk image processing using Canvas API and Web Workers.
-              </p>
-              
-              <div className="flex flex-wrap items-center gap-2 pt-2">
-                <span className="px-2 py-1 bg-secondary text-secondary-foreground text-[10px] font-mono rounded uppercase tracking-wider">Canvas API</span>
-                <span className="px-2 py-1 bg-secondary text-secondary-foreground text-[10px] font-mono rounded uppercase tracking-wider">Web Workers</span>
-              </div>
-            </div>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8 w-full mt-4">
+            <ProjectCard
+              title="Batchify.pro"
+              titleClassName="text-2xl"
+              description="Browser-only bulk image processing using Canvas API and Web Workers."
+              tags={["Canvas API", "Web Workers"]}
+              link="https://batchify.pro"
+              linkLabel="Live Project"
+              linkIcon="external"
+              isLive={true}
+              expandedContent={batchifyExpanded}
+              isExpanded={expandedProject === "Batchify"}
+              onToggle={() => toggleProject("Batchify")}
+            />
 
-            {/* SettleIt */}
-            <div className="group relative border border-border p-8 rounded-xl bg-background transition-colors duration-500 hover:bg-surface overflow-hidden flex flex-col gap-6 shadow-sm">
-              <div className="absolute left-0 top-0 bottom-0 w-1 bg-chartreuse -translate-x-full group-hover:translate-x-0 transition-transform duration-300 ease-out"></div>
-              
-              <div className="flex justify-between items-start">
-                <h3 className="font-serif text-2xl text-foreground">SettleIt</h3>
-                <a href="#" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-chartreuse transition-colors">
-                  <ExternalLink size={20} />
-                </a>
-              </div>
-              
-              <p className="text-muted-foreground text-base flex-1 leading-relaxed">
-                Full-stack Progressive Web App (PWA) expense manager built for modern teams.
-              </p>
-              
-              <div className="flex flex-wrap items-center gap-2 pt-2">
-                <span className="px-2 py-1 bg-secondary text-secondary-foreground text-[10px] font-mono rounded uppercase tracking-wider">PWA</span>
-                <span className="px-2 py-1 bg-secondary text-secondary-foreground text-[10px] font-mono rounded uppercase tracking-wider">Full Stack</span>
-              </div>
-            </div>
+            <ProjectCard
+              title="SettleIt"
+              titleClassName="text-2xl"
+              description="Full-stack Progressive Web App (PWA) expense manager built for modern teams."
+              tags={["PWA", "Full Stack"]}
+              link="#"
+              linkLabel="Live Project"
+              linkIcon="external"
+            />
           </div>
 
           {/* Tier 3: Also built */}
