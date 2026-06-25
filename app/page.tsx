@@ -8,7 +8,7 @@ import { useEffect, useState } from "react";
 import { Terminal } from "./components/Terminal";
 import { ProjectsSection } from "./components/ProjectsSection";
 import { AboutSection } from "./components/AboutSection";
-import { Contact } from "./components/Contact";
+import { ContactSection } from "./components/ContactSection";
 import { Skills } from "./components/Skills";
 
 export default function Home() {
@@ -71,7 +71,7 @@ export default function Home() {
       <Skills />
       <ProjectsSection />
       <AboutSection />
-      <Contact />
+      <ContactSection />
     </div>
   );
 }
