@@ -14,7 +14,7 @@ export function ProjectsSection() {
     <div className="flex flex-col gap-6 text-muted-foreground text-sm leading-relaxed font-inter">
       <div>
         <p className="font-mono text-xs uppercase tracking-widest mb-2 text-muted-foreground/70">// origin</p>
-        <p>Azeem originally built this alone under the name "Lins." He scraped everything, built the pipeline, but hit a wall at canonical ID resolution — when Rashford moved from Manchester United to FC Barcelona, he had two completely separate IDs across data sources. None of the sources agreed on player or club names either (Man United vs Manchester United, accented names, aliases). He deleted everything, restarted from scratch, and brought in two college friends — Arnav and Vedant — explaining the entire vision to them and co-designing the schema from zero.</p>
+        <p>Azeem originally built this alone under the name "Lens." He scraped everything, built the pipeline, but hit a wall at canonical ID resolution — when Rashford moved from Manchester United to FC Barcelona, he had two completely separate IDs across data sources. None of the sources agreed on player or club names either (Man United vs Manchester United, accented names, aliases). He deleted everything, restarted from scratch, and brought in two college friends — Arnav and Vedant — explaining the entire vision to them and co-designing the schema from zero.</p>
       </div>
       <div>
         <p className="font-mono text-xs uppercase tracking-widest mb-2 text-muted-foreground/70">// under the hood</p>
