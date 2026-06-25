@@ -45,9 +45,9 @@ export function HeroSection() {
 
           {/* Status line */}
           <div className="font-mono text-sm md:text-base text-foreground flex items-center gap-3 mt-8 bg-surface/50 w-fit px-4 py-2 rounded-full border border-border/50">
-            <span className="text-chartreuse font-bold">{'>'}</span> 
+            <span className="text-muted-foreground font-bold">{'>'}</span> 
             currently: building in public
-            <span className="animate-pulse bg-chartreuse w-2 h-4 inline-block"></span>
+            <span className="animate-pulse bg-foreground w-2 h-4 inline-block"></span>
           </div>
         </div>
       </div>
@@ -56,7 +56,7 @@ export function HeroSection() {
       <div className="absolute bottom-8 right-4 md:right-8 z-50">
         <button 
           onClick={() => setTerminalOpen(!terminalOpen)}
-          className="font-mono text-xs text-muted-foreground hover:text-chartreuse transition-colors uppercase tracking-widest border border-transparent hover:border-border px-3 py-2 rounded"
+          className="font-mono text-xs text-muted-foreground hover:text-foreground transition-colors uppercase tracking-widest border border-transparent hover:border-border px-3 py-2 rounded"
         >
           [ {terminalOpen ? "close terminal" : "open terminal"} ]
         </button>

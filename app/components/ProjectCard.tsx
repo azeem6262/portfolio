@@ -47,7 +47,7 @@ export function ProjectCard({
 
   return (
     <div className={`group relative border border-border p-6 md:p-8 lg:p-12 rounded-2xl bg-background transition-colors duration-500 hover:bg-surface overflow-hidden flex flex-col justify-between items-start shadow-sm ${className}`}>
-      <div className="absolute left-0 top-0 bottom-0 w-1.5 bg-chartreuse -translate-x-full group-hover:translate-x-0 transition-transform duration-300 ease-out"></div>
+      <div className="absolute left-0 top-0 bottom-0 w-1.5 bg-foreground -translate-x-full group-hover:translate-x-0 transition-transform duration-300 ease-out"></div>
       
       <div className="w-full flex flex-col gap-6 md:gap-8 flex-1">
         <div className="w-full flex flex-col md:flex-row md:items-start justify-between gap-6 md:gap-8">
@@ -72,7 +72,7 @@ export function ProjectCard({
             href={link} 
             target="_blank" 
             rel="noopener noreferrer"
-            className="flex items-center gap-2 text-foreground font-mono text-sm uppercase tracking-wider hover:text-chartreuse transition-colors whitespace-nowrap border border-border hover:border-chartreuse px-5 py-2.5 rounded-full"
+            className="flex items-center gap-2 text-foreground font-mono text-sm uppercase tracking-wider hover:text-muted-foreground transition-colors whitespace-nowrap border border-border hover:border-muted-foreground px-5 py-2.5 rounded-full focus:outline-none focus:ring-2 focus:ring-foreground"
           >
             {linkLabel} {linkIcon === "external" ? <ExternalLink size={16} /> : <Github size={16} />}
           </a>
@@ -89,7 +89,7 @@ export function ProjectCard({
         {highlightStat && (
           <div className="w-full pt-4 md:pt-6 border-t border-border mt-auto">
             <p className="text-foreground font-mono text-sm flex items-center gap-3">
-              <span className="text-chartreuse text-xl">✦</span> {highlightStat}
+              <span className="text-muted-foreground text-xl">✦</span> {highlightStat}
             </p>
           </div>
         )}

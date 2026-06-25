@@ -27,7 +27,7 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   title: "Azeem | Software Engineer",
-  description: "Portfolio of Azeem.",
+  description: "Mohammed Azeem — Software Engineer and founder of Flickstat. Building scalable, user-centric products from Rajasthan, India.",
 };
 
 export default function RootLayout({
