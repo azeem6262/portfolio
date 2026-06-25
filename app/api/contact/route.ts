@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server";
+import { Resend } from "resend";
 
 export async function POST(req: Request) {
   try {
@@ -11,58 +12,38 @@ export async function POST(req: Request) {
       );
     }
 
-    const ANTHROPIC_API_KEY = process.env.ANTHROPIC_API_KEY;
-    if (!ANTHROPIC_API_KEY) {
-      console.error("ANTHROPIC_API_KEY is not configured.");
+    const RESEND_API_KEY = process.env.RESEND_API_KEY;
+    if (!RESEND_API_KEY) {
+      console.error("RESEND_API_KEY is not configured.");
       // Fallback response if API key is missing
       return NextResponse.json({
-        reply: "Message sent. Azeem will be in touch.",
+        reply: "Message sent successfully. I'll get back to you soon!",
       });
     }
 
-    const systemPrompt =
-      "You are a friendly assistant on Azeem's portfolio. A visitor has reached out. Acknowledge their message warmly in 2-3 sentences, confirm Azeem will get back to them soon, and sign off as Azeem's assistant.";
+    const resend = new Resend(RESEND_API_KEY);
 
-    const anthropicPayload = {
-      model: "claude-3-7-sonnet-20250219",
-      max_tokens: 1000,
-      system: systemPrompt,
-      messages: [
-        {
-          role: "user",
-          content: `New message from ${name} (${email}):\n\n${message}`,
-        },
-      ],
-    };
-
-    const response = await fetch("https://api.anthropic.com/v1/messages", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        "x-api-key": ANTHROPIC_API_KEY,
-        "anthropic-version": "2023-06-01",
-      },
-      body: JSON.stringify(anthropicPayload),
+    // Send email using Resend
+    const { data, error } = await resend.emails.send({
+      from: "Portfolio Contact <onboarding@resend.dev>",
+      to: ["mazeem.ajm@gmail.com"],
+      subject: `New Portfolio Message from ${name}`,
+      text: `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`,
     });
 
-    if (!response.ok) {
-      const errorData = await response.json();
-      console.error("Anthropic API error:", errorData);
-      throw new Error("Failed to fetch from Anthropic API");
+    if (error) {
+      console.error("Resend API error:", error);
+      throw new Error("Failed to send email");
     }
 
-    const data = await response.json();
-
-    // Extract the text content from Anthropic's response
-    const replyText =
-      data.content?.[0]?.text || "Message sent. Azeem will be in touch.";
-
-    return NextResponse.json({ reply: replyText });
+    return NextResponse.json({ 
+      reply: "Message sent successfully. I'll get back to you soon!" 
+    });
   } catch (error) {
     console.error("Contact API error:", error);
-    // Return a graceful fallback if the AI generation fails
+    // Return a graceful fallback if the email generation fails
     return NextResponse.json({
-      reply: "Message sent. Azeem will be in touch.",
+      reply: "Message sent successfully. I'll get back to you soon!",
     });
   }
 }
