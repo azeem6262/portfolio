@@ -6,6 +6,7 @@ import { useTheme } from "next-themes";
 import { Moon, Sun } from "lucide-react";
 import { useEffect, useState } from "react";
 import { Terminal } from "./components/Terminal";
+import { HeroSection } from "./components/HeroSection";
 import { ProjectsSection } from "./components/ProjectsSection";
 import { AboutSection } from "./components/AboutSection";
 import { ContactSection } from "./components/ContactSection";
@@ -48,24 +49,7 @@ export default function Home() {
         </div>
       </nav>
 
-      {/* Hero Section Container */}
-      <main className="pt-28 md:pt-32 px-4 md:px-6 max-w-7xl mx-auto flex flex-col items-start min-h-[90vh] justify-center">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 w-full items-center">
-          {/* Left: Minimal Typography */}
-          <div className="flex flex-col gap-6 max-w-2xl mt-8 lg:mt-0">
-            <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold tracking-tight text-foreground leading-[1.1]">
-              Crafting digital <br className="hidden md:block" />
-              <span className="text-muted-foreground">experiences.</span>
-            </h1>
-            <p className="text-lg md:text-xl text-muted-foreground max-w-md leading-relaxed">
-              I&apos;m a Software Engineer focused on building scalable, user-centric web applications with modern architecture.
-            </p>
-          </div>
-
-          {/* Right: Interactive Terminal */}
-          <Terminal />
-        </div>
-      </main>
+      <HeroSection />
 
       {/* Content Sections */}
       <Skills />
