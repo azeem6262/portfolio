@@ -134,11 +134,11 @@ export function ProjectsSection() {
           <div className="mt-12 pt-12 border-t border-border">
             <h4 className="font-mono text-sm tracking-widest text-muted-foreground uppercase mb-8">// Also built</h4>
             <div className="flex flex-col sm:flex-row gap-8">
-              <a href="#" className="group flex items-center gap-3 text-muted-foreground hover:text-foreground transition-colors">
+              <a href="https://github.com/azeem6262/collaborative-draw" target="_blank" rel="noopener noreferrer" className="group flex items-center gap-3 text-muted-foreground hover:text-foreground transition-colors">
                 <span className="font-serif text-xl">CollDraw</span>
                 <span className="text-muted-foreground group-hover:text-chartreuse opacity-50 transition-all group-hover:opacity-100 group-hover:translate-x-1">→</span>
               </a>
-              <a href="#" className="group flex items-center gap-3 text-muted-foreground hover:text-foreground transition-colors">
+              <a href="https://github.com/azeem6262/trieHub" target="_blank" rel="noopener noreferrer" className="group flex items-center gap-3 text-muted-foreground hover:text-foreground transition-colors">
                 <span className="font-serif text-xl">TrieHub</span>
                 <span className="text-muted-foreground group-hover:text-chartreuse opacity-50 transition-all group-hover:opacity-100 group-hover:translate-x-1">→</span>
               </a>
