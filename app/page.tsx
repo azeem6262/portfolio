@@ -32,7 +32,7 @@ export default function Home() {
   return (
     <div className="min-h-screen relative overflow-hidden selection:bg-primary/10">
       {/* Navigation Layer */}
-      <nav className={`fixed top-0 left-0 right-0 p-4 sm:p-6 flex items-center justify-between z-50 transition-all duration-300 ${isScrolled ? "bg-background border-b border-border" : "bg-transparent border-transparent"}`}>
+      <nav className={`fixed top-0 left-0 right-0 p-4 sm:p-6 flex items-center justify-between z-50 transition-all duration-300 ${isScrolled ? "bg-background/60 backdrop-blur-lg border-b border-border shadow-sm" : "bg-transparent border-transparent"}`}>
         <div className="w-10 h-10 rounded-full border border-border bg-muted overflow-hidden flex items-center justify-center font-bold text-xs shadow-sm" title="Azeem">
           <Image src="/pfp.jpeg" alt="Azeem Profile" width={40} height={40} className="w-full h-full object-cover" />
           <span className="absolute -z-10">A</span>
