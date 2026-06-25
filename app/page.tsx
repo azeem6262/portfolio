@@ -7,6 +7,7 @@ import { Moon, Sun } from "lucide-react";
 import { useEffect, useState } from "react";
 import { Terminal } from "./components/Terminal";
 import { ProjectsSection } from "./components/ProjectsSection";
+import { AboutSection } from "./components/AboutSection";
 import { Contact } from "./components/Contact";
 import { Skills } from "./components/Skills";
 
@@ -69,6 +70,7 @@ export default function Home() {
       {/* Content Sections */}
       <Skills />
       <ProjectsSection />
+      <AboutSection />
       <Contact />
     </div>
   );
